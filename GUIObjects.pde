@@ -1,7 +1,7 @@
 // Parent to all the GUI objects
 
 class GUIObjects {
-  int xpos, ypos;      // Position of GUI objct
+  int xpos, ypos;                   // Position of GUI objct
   int objectWidth, objectHeight;    // width and height of bar
   color objectGUIColor, objectGUIHighlight, objectGUIBorder;
   boolean mouseOver = false;
@@ -9,9 +9,9 @@ class GUIObjects {
   String text = "";
 
   GUIObjects() {
-    objectGUIColor = color(255);
-    objectGUIHighlight = color(0, 255, 0);
-    objectGUIBorder = color(160);
+    objectGUIColor = color(255,255);             //(Grayscale,Opacy); Values are 0 to 255. Opacy is inverse transparency
+    objectGUIHighlight = color(0, 255, 0, 255);  //(Red,Green,Blue,Opacy); Values are 0 to 255. Opacy is inverse transparency
+    objectGUIBorder = color(160);                //(Grayscale); Values are 0 to 255.
   }
   boolean overObject() {
     if (mouseX > xpos && mouseX < xpos+objectWidth &&

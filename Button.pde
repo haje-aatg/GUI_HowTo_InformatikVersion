@@ -1,10 +1,15 @@
+/*
+ Class for buttons
+ */
+
 class Button extends GUIObjects {
   boolean buttonPressed = false;
   public color Tekst = color(0, 0, 0);
   String textButton;
+  byte radii = 0;  // 0 for not rounded corners. Else it is the radius of the rounded corner
 
   Button() {
-    super();
+    super();          // Call GUIObjects()
     objectWidth = 180;
     objectHeight = 90;
     xpos = 10;
@@ -18,6 +23,15 @@ class Button extends GUIObjects {
     xpos = xp;
     ypos = yp;
     textButton = tb;
+  }
+  Button(int xp, int yp, int ow, int oh, String tb, byte tr) {
+    super();
+    objectWidth = ow;
+    objectHeight = oh;
+    xpos = xp;
+    ypos = yp;
+    textButton = tb;
+    radii = tr;
   }
   void display() {
     if (overObject()) {
@@ -37,7 +51,7 @@ class Button extends GUIObjects {
       }
     }
     stroke(objectGUIBorder);
-    rect(xpos, ypos, objectWidth, objectHeight);
+    rect(xpos, ypos, objectWidth, objectHeight, radii);
     textAlign(CENTER, CENTER);
     fill(Tekst);
     textSize(textSize);

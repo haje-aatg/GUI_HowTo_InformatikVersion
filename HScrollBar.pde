@@ -1,19 +1,19 @@
 // Based on https://processing.org/examples/scrollbar.html
 
 class HScrollBar extends GUIObjects {
-  //float xpos, ypos;       // x and y position of bar
-  float spos, newspos;    // x position of slider
-  float sposMin, sposMax; // max and min values of slider
-  int scrollBarDamping;              // how loose/heavy
+  //float xpos, ypos;      // x and y position of bar
+  float spos, newspos;     // x position of slider
+  float sposMin, sposMax;  // max and min values of slider
+  int scrollBarDamping;    // how loose/heavy
   boolean locked;
-  float ratio;
+  //float ratio;
 
   HScrollBar () {
-    super();
+    super();               // Call GUIObjects()
     objectWidth = width - 20;
     objectHeight = 20;
-    int widthtoheight = objectWidth - objectHeight;
-    ratio = (float)objectWidth / (float)widthtoheight;
+    //int widthtoheight = objectWidth - objectHeight;
+    //ratio = (float)objectWidth / (float)widthtoheight;
     xpos = 10;
     ypos = height/2-objectHeight/2;
     spos = xpos + objectWidth/2 - objectHeight/2;
@@ -25,8 +25,8 @@ class HScrollBar extends GUIObjects {
   HScrollBar (int xp, int yp, int ow, int oh, int lambda) {
     objectWidth = ow;
     objectHeight = oh;
-    int widthtoheight = ow - oh;
-    ratio = (float)ow / (float)widthtoheight;
+    //int widthtoheight = ow - oh;
+    //ratio = (float)ow / (float)widthtoheight;
     xpos = xp;
     ypos = yp-objectHeight/2;
     spos = xpos + objectWidth/2 - objectHeight/2;
@@ -58,9 +58,10 @@ class HScrollBar extends GUIObjects {
     }
     if (locked) {
       newspos = constrain(mouseX-objectHeight/2, sposMin, sposMax);
-      println(newspos + " : " + newspos * ratio);
+      //println(newspos + " : " + newspos * ratio);
+      println("Moving 2: " + newspos);
     }
-    if (abs(newspos - spos) > 1) {
+    if (abs(newspos - spos) > 0) {
       spos = spos + (newspos-spos)/scrollBarDamping;
     }
   }
@@ -69,6 +70,7 @@ class HScrollBar extends GUIObjects {
   }
   float getPos() {
     // Convert spos to be values between 0 and the total width of the scrollbar
-    return spos * ratio;
+    //return spos * ratio;
+    return spos;
   }
 }

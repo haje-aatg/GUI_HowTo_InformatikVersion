@@ -5,10 +5,11 @@ public class TextBox extends GUIObjects {
   public color Tekst = color(0, 0, 0);
   public boolean BorderEnable = true;
   public int BorderWeight = 1;
+  public boolean topPrint = false;
   private boolean selected = false;
 
   TextBox() {
-    super();  // Kalder GUIObjects()
+    super();          // Call GUIObjects()
     xpos = 10;
     ypos = height*3/4;
     objectWidth = 200;
@@ -39,8 +40,13 @@ public class TextBox extends GUIObjects {
     // tekst
     fill(Tekst);
     textSize(textSize);
-    textAlign(LEFT, CENTER);
-    text(text, xpos + (textWidth("a") / 2), ypos+(objectHeight)/2);
+    if (topPrint) {
+      textAlign(LEFT, TOP);
+      text(text, xpos + (textWidth("a") / 2), ypos);
+    } else {
+      textAlign(LEFT, CENTER);
+      text(text, xpos + (textWidth("a") / 2), ypos+(objectHeight)/2);
+    }
   }
   void update() {
     overObject();
