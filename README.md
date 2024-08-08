@@ -9,3 +9,5 @@ Første version inkluderer:
 Anden version inkluderer:
 - Opdaterede knapper
 - Nye knapper med billeder
+Version 2.1
+- Dropdown menu prototype
