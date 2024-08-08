@@ -13,6 +13,7 @@ ButtonWImage state1Button;
 HScrollBar state0HScrollBar;
 VScrollBar state1VScrollBar;
 TextBox state1TextBar;
+DropDownMenu state1DropDownMenu;
 Byte state = 0;              //Make variable state AND initialise
 PImage imgState0;
 PImage imgState1;
@@ -26,6 +27,8 @@ void setup() {
   state1Button = new ButtonWImage(490, 490, 100, 100, "state1ButtonN.jpg", "state1ButtonO.jpg");            //(x-coordinat,y-coordinat,width,height,picture,pictureOver)
   state1VScrollBar = new VScrollBar(580, 10, 20, 470, 13);
   state1TextBar = new TextBox(10, 490, 460, 35);
+  state1DropDownMenu = new DropDownMenu(10, 10, 100, 35, new String[] { "Apricot", "Banana", "Citrus" } );
+  //state1DropDownMenu = new DropDownMenu(10, 10, 100, 35, new StringList(new String[] { "Apricot", "Banana", "Citrus" }) );
 }
 
 void draw() {
@@ -46,6 +49,7 @@ void draw() {
     state1Button.display();
     state1TextBar.display();
     state1VScrollBar.display();
+    state1DropDownMenu.display();
     text(state1VScrollBar.getPos(), 580-100, state1VScrollBar.getPos()+10);  //Show scroll bar position. Insert fill to make it visible when mouse not over
     if (state1Button.buttonPressed) {
       state = 0;
