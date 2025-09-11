@@ -16,22 +16,30 @@ class Button extends GUIObjects {
     ypos = 10;
     textButton = "";
   }
-  Button(int xp, int yp, int ow, int oh, String tb) {
+  Button(int _xp, int _yp, int _ow, int _oh) {
     super();
-    objectWidth = ow;
-    objectHeight = oh;
-    xpos = xp;
-    ypos = yp;
-    textButton = tb;
+    objectWidth = _ow;
+    objectHeight = _oh;
+    xpos = _xp;
+    ypos = _yp;
+    textButton = "";
   }
-  Button(int xp, int yp, int ow, int oh, String tb, byte tr) {
+  Button(int _xp, int _yp, int _ow, int _oh, String _tb) {
     super();
-    objectWidth = ow;
-    objectHeight = oh;
-    xpos = xp;
-    ypos = yp;
-    textButton = tb;
-    radii = tr;
+    objectWidth = _ow;
+    objectHeight = _oh;
+    xpos = _xp;
+    ypos = _yp;
+    textButton = _tb;
+  }
+  Button(int _xp, int _yp, int _ow, int _oh, String _tb, byte _tr) {
+    super();
+    objectWidth = _ow;
+    objectHeight = _oh;
+    xpos = _xp;
+    ypos = _yp;
+    textButton = _tb;
+    radii = _tr;
   }
   void display() {
     if (overObject()) {

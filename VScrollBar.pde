@@ -22,18 +22,18 @@ class VScrollBar extends GUIObjects {
     sposMax = ypos + objectHeight - objectWidth;
     scrollBarDamping = 13;
   }
-  VScrollBar (int xp, int yp, int ow, int oh, int lambda) {
-    objectWidth = ow;
-    objectHeight = oh;
+  VScrollBar (int _xp, int _yp, int _ow, int _oh, int _lambda) {
+    objectWidth = _ow;
+    objectHeight = _oh;
     //int widthtoheight = ow - oh;
     //ratio = (float)ow / (float)widthtoheight;
-    xpos = xp-objectWidth/2;
-    ypos = yp;
+    xpos = _xp-objectWidth/2;
+    ypos = _yp;
     spos = ypos + objectHeight/2 - objectWidth/2;
     newspos = spos;
     sposMin = ypos;
     sposMax = ypos + objectHeight - objectWidth;
-    scrollBarDamping = lambda;
+    scrollBarDamping = _lambda;
   }
   void display() {
     update();
@@ -65,8 +65,8 @@ class VScrollBar extends GUIObjects {
       spos = spos + (newspos-spos)/scrollBarDamping;
     }
   }
-  float constrain(float val, float minv, float maxv) {
-    return min(max(val, minv), maxv);
+  float constrain(float _val, float _minv, float _maxv) {
+    return min(max(_val, _minv), _maxv);
   }
   float getPos() {
     // Convert spos to be values between 0 and the total width of the scrollbar

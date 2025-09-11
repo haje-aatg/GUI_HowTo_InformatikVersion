@@ -22,18 +22,18 @@ class HScrollBar extends GUIObjects {
     sposMax = xpos + objectWidth - objectHeight;
     scrollBarDamping = 13;
   }
-  HScrollBar (int xp, int yp, int ow, int oh, int lambda) {
-    objectWidth = ow;
-    objectHeight = oh;
+  HScrollBar (int _xp, int _yp, int _ow, int _oh, int _lambda) {
+    objectWidth = _ow;
+    objectHeight = _oh;
     //int widthtoheight = ow - oh;
     //ratio = (float)ow / (float)widthtoheight;
-    xpos = xp;
-    ypos = yp-objectHeight/2;
+    xpos = _xp;
+    ypos = _yp-objectHeight/2;
     spos = xpos + objectWidth/2 - objectHeight/2;
     newspos = spos;
     sposMin = xpos;
     sposMax = xpos + objectWidth - objectHeight;
-    scrollBarDamping = lambda;
+    scrollBarDamping = _lambda;
   }
   void display() {
     update();
@@ -65,8 +65,8 @@ class HScrollBar extends GUIObjects {
       spos = spos + (newspos-spos)/scrollBarDamping;
     }
   }
-  float constrain(float val, float minv, float maxv) {
-    return min(max(val, minv), maxv);
+  float constrain(float _val, float _minv, float _maxv) {
+    return min(max(_val, _minv), _maxv);
   }
   float getPos() {
     // Convert spos to be values between 0 and the total width of the scrollbar

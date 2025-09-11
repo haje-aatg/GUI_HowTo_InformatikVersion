@@ -5,19 +5,19 @@
 class ButtonWImage extends Button {
   PImage buttonImageN, buttonImageO;
 
-  ButtonWImage(String tempImage) {
+  ButtonWImage(String _tempImage) {
     super();          // Call Button()
-    buttonImageN = loadImage(tempImage);
+    buttonImageN = loadImage(_tempImage);
   }
-  ButtonWImage(int xp, int yp, int ow, int oh, String tempImage) {
-    super(xp, yp, ow, oh, "");          // Call Button()
-    buttonImageN = loadImage(tempImage);
+  ButtonWImage(int _xp, int _yp, int _ow, int _oh, String _tempImage) {
+    super(_xp, _yp, _ow, _oh, "");          // Call Button()
+    buttonImageN = loadImage(_tempImage);
     buttonImageO = buttonImageN; 
   }
-  ButtonWImage(int xp, int yp, int ow, int oh, String tempImageN, String tempImageO) {
-    super(xp, yp, ow, oh, "");          // Call Button()
-    buttonImageN = loadImage(tempImageN);
-    buttonImageO = loadImage(tempImageO);
+  ButtonWImage(int _xp, int _yp, int _ow, int _oh, String tempImageN_, String _tempImageO) {
+    super(_xp, _yp, _ow, _oh, "");          // Call Button()
+    buttonImageN = loadImage(tempImageN_);
+    buttonImageO = loadImage(_tempImageO);
   }
   void display() {
     if (overObject()) {

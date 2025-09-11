@@ -14,16 +14,16 @@ class DropDownMenu extends Button {
     super();
     items = _items;
   }
-  DropDownMenu(int xp, int yp, int ow, int oh) {
-    super(xp, yp, ow, oh, "");
+  DropDownMenu(int _xp, int _yp, int _ow, int _oh) {
+    super(_xp, _yp, _ow, _oh, "");
   }
-  DropDownMenu(int xp, int yp, int ow, int oh, String[] _items) {
-    super(xp, yp, ow, oh, "");
+  DropDownMenu(int _xp, int _yp, int _ow, int _oh, String[] _items) {
+    super(_xp, _yp, _ow, _oh, "");
     items = new StringList(_items);
     this.textButton = items.get(0);
   }
-  DropDownMenu(int xp, int yp, int ow, int oh, StringList _items) {
-    super(xp, yp, ow, oh, "");
+  DropDownMenu(int _xp, int _yp, int _ow, int _oh, StringList _items) {
+    super(_xp, _yp, _ow, _oh, "");
     items = _items;
     this.textButton = items.get(0);
   }
@@ -43,6 +43,7 @@ class DropDownMenu extends Button {
     stroke(objectGUIBorder);
     textAlign(CENTER, CENTER);
     textSize(textSize);
+    fill(objectGUIColor);
     if (overObject()) {
       dropDownState = true;
       displayDropDownMenuItems();
@@ -101,9 +102,9 @@ class DropDownMenu extends Button {
     return itemHighlightedReturn;
   }
 
-  boolean overObject(byte indexItem) {
+  boolean overObject(byte _indexItem) {
     if (mouseX > xpos && mouseX < xpos+objectWidth
-      && mouseY > ypos+objectHeight*indexItem && mouseY < ypos+objectHeight*(indexItem+1)) {
+      && mouseY > ypos+objectHeight*_indexItem && mouseY < ypos+objectHeight*(_indexItem+1)) {
       mouseOver = true;
       return true;
     } else {
@@ -112,7 +113,7 @@ class DropDownMenu extends Button {
     }
   }
 
-  void buttonPressedEffect(byte itemNumber) {
-    println("Button: "+items.get(itemNumber)+" Pressed!!!");
+  void buttonPressedEffect(byte _itemNumber) {
+    println("Button: "+items.get(_itemNumber)+" Pressed!!!");
   }
 }

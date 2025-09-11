@@ -15,12 +15,12 @@ public class TextBox extends GUIObjects {
     objectWidth = 200;
     objectHeight = 35;
   }
-  TextBox(int xp, int yp, int ow, int oh) {
+  TextBox(int _xp, int _yp, int _ow, int _oh) {
     super();
-    xpos = xp;
-    ypos = yp;
-    objectWidth = ow;
-    objectHeight = oh;
+    xpos = _xp;
+    ypos = _yp;
+    objectWidth = _ow;
+    objectHeight = _oh;
   }
   void display() {
     update();
@@ -57,34 +57,34 @@ public class TextBox extends GUIObjects {
     }
   }
   // Check hvis det er et bogstav, backspace eller return. Returner true hvis det er return
-  boolean KEYPRESSED(char KEY, int KEYCODE) {
+  boolean KEYPRESSED(char _KEY, int _KEYCODE) {
     if (selected) {
-      println(KEY + " : " + KEYCODE);
-      if (KEYCODE == (int)BACKSPACE) {
+      println(_KEY + " : " + _KEYCODE);
+      if (_KEYCODE == (int)BACKSPACE) {
         BACKSPACE();
-      } else if (KEYCODE == 32) {
+      } else if (_KEYCODE == 32) {
         // SPACE
         addText(' ');
-      } else if (KEYCODE == (int)ENTER) {
+      } else if (_KEYCODE == (int)ENTER) {
         return true;
       } else {
         // CHECK IF THE KEY IS A LETTER OR A NUMBER
-        boolean isKeyDanishCapitalLetter = ((KEY >= 'Å' && KEY <= 'Æ') || (KEY == 'Ø'));
-        boolean isKeyDanishSmallLetter = ((KEY >= 'å' && KEY <= 'æ') || (KEY == 'ø'));
-        boolean isKeyCapitalLetter = (KEY >= 'A' && KEY <= 'Z');
-        boolean isKeySmallLetter = (KEY >= 'a' && KEY <= 'z');
-        boolean isKeyNumber = (KEY >= '0' && KEY <= '9');
+        boolean isKeyDanishCapitalLetter = ((_KEY >= 'Å' && _KEY <= 'Æ') || (_KEY == 'Ø'));
+        boolean isKeyDanishSmallLetter = ((_KEY >= 'å' && _KEY <= 'æ') || (_KEY == 'ø'));
+        boolean isKeyCapitalLetter = (_KEY >= 'A' && _KEY <= 'Z');
+        boolean isKeySmallLetter = (_KEY >= 'a' && _KEY <= 'z');
+        boolean isKeyNumber = (_KEY >= '0' && _KEY <= '9');
         if (isKeyCapitalLetter || isKeySmallLetter || isKeyDanishCapitalLetter || isKeyDanishSmallLetter || isKeyNumber) {
-          println("Inserting: " + KEY);
-          addText(KEY);
+          println("Inserting: " + _KEY);
+          addText(_KEY);
         }
       }
     }
     return false;
   }
-  void addText(char typedChar) {
-    if (textWidth(text + typedChar) + (textWidth("a") / 2 ) < objectWidth) { // Hvis der er plads til det nye bogstav
-      text += typedChar;
+  void addText(char _typedChar) {
+    if (textWidth(text + _typedChar) + (textWidth("a") / 2 ) < objectWidth) { // Hvis der er plads til det nye bogstav
+      text += _typedChar;
       TextLength++;
     }
   }
